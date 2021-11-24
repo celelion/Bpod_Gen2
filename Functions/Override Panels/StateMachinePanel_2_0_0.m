@@ -30,8 +30,9 @@ yOffset = 145;
 xPos = xOffset;
 for i = 1:BpodSystem.HW.n.Ports
     BpodSystem.GUIHandles.PortValveButton(i) = uicontrol('Parent', BpodSystem.GUIHandles.OverridePanel(1),'Style', 'pushbutton', 'String', '', 'Position', [xPos yOffset 30 30], 'Callback', ['ManualOverride(''OV'',' num2str(i) ');'], 'CData', BpodSystem.GUIData.OffButtonDark, 'TooltipString', ['Toggle port ' num2str(i) ' valve']);
-    BpodSystem.GUIHandles.PortLEDButton(i) = uicontrol('Parent', BpodSystem.GUIHandles.OverridePanel(1),'Style', 'pushbutton', 'String', '', 'Position', [xPos yOffset-52 30 30], 'Callback', ['ManualOverride(''OP'',' num2str(i) ');'], 'CData', BpodSystem.GUIData.OffButtonDark, 'TooltipString', ['Toggle port ' num2str(i) ' LED']);
-    BpodSystem.GUIHandles.PortvPokeButton(i) = uicontrol('Parent', BpodSystem.GUIHandles.OverridePanel(1),'Style', 'pushbutton', 'String', '', 'Position', [xPos yOffset-104 30 30], 'Callback', ['ManualOverride(''IP'',' num2str(i) ');'], 'CData', BpodSystem.GUIData.OffButtonDark, 'TooltipString', ['Port ' num2str(i) ' virtual photogate']);
+    BpodSystem.GUIHandles.PortLEDButton(i) = uicontrol('Parent', BpodSystem.GUIHandles.OverridePanel(1),'Style', 'pushbutton', 'String', '', 'Position', [xPos yOffset-39 30 30], 'Callback', ['ManualOverride(''OP'',' num2str(i) ');'], 'CData', BpodSystem.GUIData.OffButtonDark, 'TooltipString', ['Toggle port ' num2str(i) ' LED']);
+    BpodSystem.GUIHandles.PortLEDButton(i) = uicontrol('Parent', BpodSystem.GUIHandles.OverridePanel(1),'Style', 'pushbutton', 'String', '', 'Position', [xPos yOffset-77 30 30], 'Callback', ['ManualOverride(''ON'',' num2str(i) ');'], 'CData', BpodSystem.GUIData.OffButtonDark, 'TooltipString', ['Toggle port ' num2str(i) ' LED2']);
+    BpodSystem.GUIHandles.PortvPokeButton(i) = uicontrol('Parent', BpodSystem.GUIHandles.OverridePanel(1),'Style', 'pushbutton', 'String', '', 'Position', [xPos yOffset-116 30 30], 'Callback', ['ManualOverride(''IP'',' num2str(i) ');'], 'CData', BpodSystem.GUIData.OffButtonDark, 'TooltipString', ['Port ' num2str(i) ' virtual photogate']);
     xPos = xPos + 44;
 end
 if ispc
@@ -46,9 +47,10 @@ for x = 1:BpodSystem.HW.n.Ports
     text(xPos, yOffset+45,num2str(x), 'FontName', FontName, 'FontSize', medFontSize, 'Color', [.8 .8 .8]);
     xPos = xPos + 44;
 end
-text(xOffset-42, yOffset+15,'VLV', 'FontName', FontName, 'FontSize', medFontSize, 'Color', [.8 .8 .8]);
-text(xOffset-42, yOffset-38,'LED', 'FontName', FontName, 'FontSize', medFontSize, 'Color', [.8 .8 .8]);
-text(xOffset-42, yOffset-90,'POK', 'FontName', FontName, 'FontSize', medFontSize, 'Color', [.8 .8 .8]);
+text(xOffset-42, yOffset+15,'VLVE', 'FontName', FontName, 'FontSize', medFontSize, 'Color', [.8 .8 .8]);
+text(xOffset-42, yOffset-24,'LED1', 'FontName', FontName, 'FontSize', medFontSize, 'Color', [.8 .8 .8]);
+text(xOffset-42, yOffset-63,'LED2', 'FontName', FontName, 'FontSize', medFontSize, 'Color', [.8 .8 .8]);
+text(xOffset-42, yOffset-102,'POKE', 'FontName', FontName, 'FontSize', medFontSize, 'Color', [.8 .8 .8]);
 if ispc
     TitleXOffset = 20;
 elseif ismac
