@@ -43,6 +43,14 @@ switch TargetCode(1)
                     BpodSystem.HardwareState.OutputState(Ch) = 0;
                 end
                 OverrideMessage = ['O' DigitalOutputChannel BpodSystem.HardwareState.OutputState(Ch)];
+            case 'N'
+                oldVal = BpodSystem.HardwareState.OutputState(Ch);
+                if oldVal < 255
+                    BpodSystem.HardwareState.OutputState(Ch) = 255;
+                else
+                    BpodSystem.HardwareState.OutputState(Ch) = 0;
+                end
+                OverrideMessage = ['O' DigitalOutputChannel BpodSystem.HardwareState.OutputState(Ch)];
             case 'B'
                 BpodSystem.HardwareState.OutputState(Ch) = 1-BpodSystem.HardwareState.OutputState(Ch);
                 OverrideMessage = ['O' DigitalOutputChannel BpodSystem.HardwareState.OutputState(Ch)];

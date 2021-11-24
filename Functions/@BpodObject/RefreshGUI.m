@@ -81,6 +81,14 @@ function obj = RefreshGUI(obj)
                         set(obj.GUIHandles.PortLEDButton(i-obj.HW.Pos.Output_PWM+1), 'CData', obj.GUIData.OffButtonDark);
                     end
                 end
+            case 'N' % Port PWM LED2
+                if obj.GUIData.CurrentPanel == 1
+                    if thisChannelState > 0
+                        set(obj.GUIHandles.PortLED2Button(i-obj.HW.Pos.Output_PWM2+1), 'CData', obj.GUIData.OnButtonDark);
+                    else
+                        set(obj.GUIHandles.PortLED2Button(i-obj.HW.Pos.Output_PWM2+1), 'CData', obj.GUIData.OffButtonDark);
+                    end
+                end
         end
     end
     ChangedInputChannels = find(obj.HardwareState.InputState ~= obj.LastHardwareState.InputState);

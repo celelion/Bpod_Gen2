@@ -139,6 +139,7 @@ function obj = SetupStateMachine(obj)
     nBNCs = 0;
     nWires = 0;
     nPorts = 0;
+    nLED2 = 0;
     nValves = 0;
     for i = 1:obj.HW.n.Outputs
         Pos = Pos + 1;
@@ -186,6 +187,12 @@ function obj = SetupStateMachine(obj)
                 end
                 nPorts = nPorts + 1;
                 OutputChannelNames{Pos} = ['PWM' num2str(nPorts)];
+            case 'N'
+                if nLED2 == 0
+                    obj.HW.Pos.Output_PWM2 = Pos;
+                end
+                nLED2 = nLED2 + 1;
+                OutputChannelNames{Pos} = ['LED' num2str(nLED2)];
             case 'B'
                 if nBNCs == 0
                     obj.HW.Pos.Output_BNC = Pos;
